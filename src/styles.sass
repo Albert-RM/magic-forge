@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')
+
+// Variables
+:root
+  --bg-color: #1e1e1e
+  --text-color: #ffffff
+  --accent-color: #7e57c2
+  --input-bg: #2c2c2c
+  --font-family: 'Roboto', sans-serif
+
+// Global
+body
+  margin: 0
+  padding: 0
+  background-color: var(--bg-color)
+  color: var(--text-color)
+  font-family: var(--font-family)
+
+h1, h2, h3, h4, h5, h6
+  color: var(--text-color)
+  font-family: var(--font-family)
+
+img
+  max-width: 100%
+  height: auto
+
+// Buscador
+// Igualar altura visual de mat-form-field y botón
+.search-box
+  .mat-form-field
+    height: 56px
+    display: flex
+    align-items: center
+
+    .mat-form-field-wrapper
+      padding-bottom: 0 !important
+      padding-top: 0 !important
+      height: 100%
+      display: flex
+      align-items: center
+
+    .mat-form-field-flex
+      height: 100%
+      align-items: center
+
+    .mat-form-field-infix
+      height: 100%
+      display: flex
+      align-items: center
+      box-sizing: border-box
+
+  .search-button
+    height: 56px
+    padding: 0 20px
+    display: flex
+    align-items: center
+    justify-content: center
+    font-weight: bold
+
+// Resultados de cartas
+.card-grid
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+  gap: 1rem
+
+.card-item
+  display: flex
+  flex-direction: column
+  align-items: center
+  background-color: #2a2a2a
+  padding: 0.5rem
+  border-radius: 8px
+  transition: transform 0.2s ease, box-shadow 0.2s ease
+
+  &:hover
+    transform: scale(1.03)
+    box-shadow: 0 0 12px rgba(126, 87, 194, 0.5)
+
+  img
+    height: 350px
+    border-radius: 4px
+
+  .card-index
+    margin-top: 0.5rem
+    font-size: 0.9rem
+    color: #ccc
+
+.selector-language
+  width: 125px
+
+.flag-icon
+  width: 24px
+  height: 16px
+  margin-right: 8px
+  vertical-align: middle
+  border-radius: 2px
+
+// Asegura que la caja de búsqueda tenga una apariencia consistente
+.search-box
+  display: flex
+  align-items: center
+  gap: 10px
+
+.mat-form-field
+  flex-grow: 1
+  height: 56px // Asegura que el contenedor tenga la altura adecuada
+  display: flex
+  align-items: center
+  box-sizing: border-box // Asegura que el padding no afecte el tamaño
+  
+  // Asegurando que todos los campos dentro tengan la misma altura
+  mat-label 
+    top: 0 // Alinea correctamente la etiqueta
+
+  mat-select,
+  input 
+    height: 100% // Asegura que tanto el select como el input tengan el mismo alto
+    display: flex
+    align-items: center
+    box-sizing: border-box // Asegura que el padding no afecte el tamaño

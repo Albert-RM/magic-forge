@@ -1,0 +1,34 @@
+<div class="search-box">
+  <!-- Selector de idioma -->
+  <mat-form-field appearance="outline" class="selector-language">
+    <mat-label>Idioma</mat-label>
+    <mat-select [(value)]="selectedLanguage" disableRipple>
+      <mat-select-trigger>
+        <ng-container *ngIf="selectedLanguage">
+          <img class="flag-icon" [src]="'assets/flags/' + selectedLanguage.flag" [alt]="selectedLanguage.name">
+        </ng-container>
+      </mat-select-trigger>
+      <mat-option *ngFor="let lang of languages" [value]="lang">
+        <img class="flag-icon" [src]="'assets/flags/' + lang.flag" [alt]="lang.name" />
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Campo de búsqueda -->
+  <mat-form-field appearance="outline" class="search-input">
+    <mat-label>Buscar cartas</mat-label>
+    <input matInput [(ngModel)]="searchQuery" (keydown.enter)="searchCards()" />
+  </mat-form-field>
+
+  <!-- Botón de búsqueda -->
+  <button mat-raised-button (click)="searchCards()" class="search-button" type="button">Buscar</button>
+</div>
+
+<div *ngFor="let card of cards; let i = index">
+  <div *ngIf="card.manaCost">
+    {{ i }}
+    <img [src]="card.imageUrl" alt="{{ card.name }}" style="height: 350px;"/>
+    <!-- <img [src]="card.card_faces ? card.card_faces[0]?.image_uris?.png : card.image_uris?.png" 
+         alt="{{ card.name }}" style="height: 350px;"/> -->
+  </div>
+</div>
